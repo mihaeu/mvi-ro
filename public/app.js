@@ -51,10 +51,10 @@ function post() {
 
 render();
 
-// setInterval(() => {
-// 	if (document.getElementById('file') !== document.activeElement
-// 	  && document.getElementById('file').value.length > 0
-// 	  && document.getElementById('result').innerHTML.length > 0) {
-// 		post();
-// 	}
-// }, 5000);
+setInterval(() => {
+	if (document.getElementById('file') !== document.activeElement
+	  && document.getElementById('file').value.length > 0
+	  && document.getElementById('result').innerHTML.length > 0) {
+		post();
+	}
+}, 5000);
