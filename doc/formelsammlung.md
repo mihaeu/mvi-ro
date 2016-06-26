@@ -1,5 +1,12 @@
 # Formelsammlung
 
+## Allgemein
+
+|                    |                                 |
+| ------------------ | --------------------------------|
+| geometrische Reihe für Teilsummen | $s_n = sum_(k=0)^n q^k = (1-q^(n+1)) / (1-q)$, falls $q ne 1$ |
+| geometrische Reihe für Grenzwert | $sum_(k=0)^oo q^k = 1/(1-q)$, konvergiert falls $ \|q\|<1 $, sonst divergiert sie |
+
 ## Kapitel 1 - Markovketten mit diskreter Zeit
 
 |                                           |                                 |
@@ -21,13 +28,28 @@
 | Stretching Faktor                       | $S_A=T_A^(real)/T_A=n/m=n/(n-n(pi_("Warte-Zustand 1")+pi_("Warte-Zustand 2")+...))$|
 | Leistung Bi vs. Mono                    | $T_(Mono)= 2 * T_A=(2*T_A) / T_A^(real)=2/S_A$|
 | Bandbreite                              | $E(V_p)=m(1-(1-1/m)^p)$ wobei $m="Speichermodule"$ und $p="Prozessoren"$|
-||T_(Bi)|
+||$T_(Bi)/T_(Mono)=T^**/(2T)=S/2$|
 
 ### Google Ranking
 
 ### Erzeuger/Verbraucher
 
+### Rekurrenz
 
+|                                         |                                  |
+| --------------------------------------- |----------------------------------|
+| Zeitschritte bis ich wieder in i bin    | $R_i=1/pi_i$ |
+
+
+### Bestellpolitik
+
+|  |                                  |
+| ---------------- | -------------------------------- |
+| Mittlerer Lagerbestand         | $Q/2$  |
+|aktueller Lagerbestand| $L(t) = Q-r * t$ <br> $L(t_0)=0$ <br> $t_0=Q/r$|
+|Durchschnittskosten pro Zeit|$D(Q)=Q/2 * h + Kr/Q$|
+|Lagergrößenformel für min. Kosten| $root ()((2 * r * k) / h)$ |
+| Mittlerer Lagerbestand         | $bar L = sum_(i=0)pi_0$  |
 
 ## Kapitel 3 - Wartesysteme
 
@@ -73,8 +95,8 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 
 |                           |                                          |
 | ------------------------- | ---------------------------------------- |
-| Angebot                   | $a=\frac{\lambda}{\mu}$                  |
-| Verlustwahrscheinlichkeit | $\pi_s=\frac{\frac{a^n}{n!}}{\sum^n_{1=0}\frac{a^i}{i!}}$ |
+| Angebot                   | $a=lambda/mu$                  |
+| Verlustwahrscheinlichkeit | $pi_s=(a^n/(n!))/( sum_(i=0)^n a^i/(i!))$ |
 
 ### M/G/1
 
@@ -97,3 +119,23 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 | ------------------------- | ---------------------------------------- |
 |mittlere Wartezeit         | $bar W_D=lambda/(2 * mu * (mu-lambda))=(bar S * U)/(2 * (1 - U))$ |
 |||
+
+### Wartenetze offen
+
+|                                         |                                  |
+| --------------------------------------- |----------------------------------|
+|                                         | $lambda_1 = lambda_(0,1) + sum_(j=1)^k p_(j,i) * lambda_j$, $i=1, ..., k$ |
+| Durchsatz                               | $X=sum_(i=1)^k lambda_(0,1)$, falls $U_i < 1$ |
+|Besuchshäufigkeit | $e_i=lambda_i/X$ |
+|mittlere Verweilzeit | $bar V = e_i * V_i + e_(i+1) * V_(i+1) + ...$ |
+
+### Wartenetze geschlossen
+
+|                                         |                                  |
+| --------------------------------------- |----------------------------------|
+|Denkzeit|$Z$|
+|mittlere Verweilzeit/Antwortszeit| $R=bar V = N/X - Z$ |
+|Durchsatz| $X=N/(R+Z)$ |
+|mittlere Zahl aktive Aufträge| $N_a: N_a/N = R/(R+Z) => N_a=X * R$ |
+|relative Besuchshäufigkeit| $r_k$ |
+|Durchsatz am Knoten N| $X(N)=N/(sum_(k=1)^K bar V_k(N) * r_k$ |

@@ -6,7 +6,7 @@ const fs = require('fs');
 
 const app = express();
 app.use(express.static('public'));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 
 app.post('/', (req, res) => {
   if (req.body.file.match(/[\/\.]/)) {
