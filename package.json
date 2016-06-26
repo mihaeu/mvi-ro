@@ -14,7 +14,7 @@
     "browserify": "^13.0.1",
     "markdown-it": "^6.0.5",
     "markdown-it-math": "^4.0.1",
-    "nodemon": "^1.9.2",
+    "nodemon": "^1.9.2"
   },
   "scripts": {
     "start": "node_modules/nodemon/bin/nodemon.js server.js",
