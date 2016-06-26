@@ -52,6 +52,7 @@ function post() {
 render();
 
 setInterval(() => {
+	render();
 	if (document.getElementById('file') !== document.activeElement
 	  && document.getElementById('file').value.length > 0
 	  && document.getElementById('result').innerHTML.length > 0) {
