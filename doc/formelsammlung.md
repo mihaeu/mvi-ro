@@ -106,7 +106,7 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 |mittlere Bedienzeit        | $bar S = 1/mu$|
 |mittlere Wartezeit         | $bar W_G=(lambda * (1+c^2))/(2 * mu * (mu - lambda))=bar S * (U * (1+c^2))/(2 * (1-U))$ |
 |$bar(S^2)$                 | $bar(S^2) = Var(S) + bar S^2 = (1 + c^2) * bar S^2$ |
-|mittlere Verweilzeit       | $bar V = bar S + bar W = bar S + (lambda * bar S^2)/(2 * (1 - rho))=bar S * (1 + (1+c^2)/(2) * (rho)/(1-rho))$ |
+|mittlere Verweilzeit       | $bar V = bar S + bar W = bar S + (lambda * bar S^2 * (1+c^2))/(2 * (1 - rho))=bar S * (1 + (1+c^2)/(2) * (rho)/(1-rho))$ |
 |mittlere Anzahl Wartender  | $bar N_W=lambda * bar W = = (lambda^2 * bar S^2)/(2(1-rho))=(1+c^2)/2 * rho^2/(1-rho)$ |
 |mittlere Anzahl im System  | $lambda * bar V = lambda * bar S + (lambda^2 * bar S^2)/(2(1-rho))=rho + (1+c^2)/2 * rho^2/(1-rho)$ |
 
