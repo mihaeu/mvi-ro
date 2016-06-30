@@ -32,7 +32,9 @@
         </style>
     </head>
     <body>
-        <em>Math Editor</em> <input type="text" placeholder="filename" id="file"> <span id="last-saved"></span>
+        <em>Math Editor</em> 
+        <input type="text" placeholder="filename" id="file"> <span id="last-saved"></span>
+        <select onchange="load()" name="files" id="files"></select> <button onclick="fetchFiles()">Refresh</button>
         <br>
         <br>
         <div id="test">

@@ -19,6 +19,14 @@ app.post('/', (req, res) => {
   res.send();
 });
 
+app.get('/file/:file', (req, res) => {
+	res.send({md: fs.readFileSync('doc/'+req.params.file, 'utf8')});
+});
+
+app.get('/files', (req, res) => {
+	res.send({files: fs.readdirSync('./doc').filter(x => x.match(/\.md/))});
+});
+
 app.get('/compile', (req, res) => {
     res.send(template(
 		'<h1>MVI</h1>',

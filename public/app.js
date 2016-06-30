@@ -31,6 +31,46 @@ function render() {
 	}
 }
 
+function load() {
+	let files = document.getElementById('files');
+	fetchFile(files.options[files.selectedIndex].innerHTML);
+}
+
+/**
+ * @param {string} file
+ */
+function fetchFile(file) {
+	let http = new XMLHttpRequest();
+	http.open("GET", '/file/'+file, true);
+	http.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	http.onreadystatechange = () => {
+		if(http.readyState == 4 && http.status == 200) {
+			document.getElementById('math').innerHTML = JSON.parse(http.responseText).md;
+			document.getElementById('file').value = file;
+			render();
+		} else {
+			console.log('fail');
+		}
+	};
+	http.send(JSON.stringify({file: file}));
+}
+
+function fetchFiles() {
+	let http = new XMLHttpRequest();
+	http.open("GET", '/files', true);
+	http.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	http.onreadystatechange = () => {
+		if(http.readyState == 4 && http.status == 200) {
+			document.getElementById('files').innerHTML =
+				JSON.parse(http.responseText).files
+					.reduce((prev, current) => `${prev}<option>${current}</option>`, '<option>[select]</option>');
+		} else {
+			console.log('fail');
+		}
+	};
+	http.send();
+}
+
 function post() {
 	let http = new XMLHttpRequest();
 	http.open("POST", '/', true);
@@ -50,6 +90,7 @@ function post() {
 }
 
 render();
+fetchFiles();
 
 setInterval(() => {
 	render();
