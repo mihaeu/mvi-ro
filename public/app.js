@@ -72,6 +72,12 @@ function fetchFiles() {
 }
 
 function post() {
+	if (document.getElementById('file') === document.activeElement
+		|| document.getElementById('file').value.length == 0
+		|| document.getElementById('result').innerHTML.length == 0) {
+		return;
+	}
+
 	let http = new XMLHttpRequest();
 	http.open("POST", '/', true);
 	http.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -89,14 +95,8 @@ function post() {
 	}));
 }
 
-render();
 fetchFiles();
 
 setInterval(() => {
 	render();
-	if (document.getElementById('file') !== document.activeElement
-	  && document.getElementById('file').value.length > 0
-	  && document.getElementById('result').innerHTML.length > 0) {
-		post();
-	}
 }, 5000);
