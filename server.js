@@ -53,7 +53,6 @@ let template = (title, content) => {
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="http://yegor256.github.io/tacit/tacit.min.css"/>
     <link rel="stylesheet" type="text/css" href="tacit.min.css"/>
 </head>
 <body style="width:800px;margin: 0 auto;">
