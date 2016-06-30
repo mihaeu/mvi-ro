@@ -1,6 +1,6 @@
 # Formelsammlung
 
-## Allgemein 
+## Allgemein
 
 |                    |                                 |
 | ------------------ | --------------------------------|
@@ -152,7 +152,7 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 |                                         |                                  |
 | --------------------------------------- |----------------------------------|
 |Denkzeit|$Z$|
-|mittlere Verweilzeit/Antwortszeit/Reparaturzeit| $R=bar V = N/X - Z$ |
+|mittlere Verweilzeit/Antwortszeit/Reparaturzeit| $R=bar V = N/X - bar Z$ |
 |Durchsatz| $X=N/(bar V+ bar Z)$ |
 |mittlere Zahl aktive Aufträge| $N_a / N = bar V/(bar V+Z) => N_a=X * bar V$ |
 |mittlere Zahl inaktive Aufträge| $N_ia =X * bar Z$ |
