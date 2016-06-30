@@ -1,6 +1,6 @@
 # Formelsammlung
 
-## Allgemein
+## Allgemein 
 
 |                    |                                 |
 | ------------------ | --------------------------------|
@@ -124,18 +124,43 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 
 |                                         |                                  |
 | --------------------------------------- |----------------------------------|
-|                                         | $lambda_1 = lambda_(0,1) + sum_(j=1)^k p_(j,i) * lambda_j$, $i=1, ..., k$ |
-| Durchsatz                               | $X=sum_(i=1)^k lambda_(0,1)$, falls $U_i < 1$ |
-|Besuchshäufigkeit | $e_i=lambda_i/X$ |
+| Typ 1 für Platten, RAID; allg. E-A Geräte | $M//M//m//oo//oo//"FCFS"$ |
+| Typ 2 für CPUs mit Prozessor Sharing | $M//G//1//oo//oo//"PS"$ |
+| Typ 3 für infinite Server "IS", Terminals, allg. Wartezustände,  Prozesssynchronisation |$M//G//oo$|
+| Ankunftsrate Knoten i                                        | $lambda_i = lambda_(0,1) + sum_(j=1)^k p_(j,i) * lambda_j$, $i=1, ..., k$ oder $lambda_i=e_i * X$|
+| Durchsatz des Gesamtnetzes                           | $X=("Anzahl bearbeiteter Aufträge")/(Zeit)=sum_(i=1)^k lambda_(0,1)$, falls $U_i < 1$ |
+|Besuchshäufigkeit, mittl. Anzahl Besuche | $e_i=lambda_i/X$ |
 |mittlere Verweilzeit | $bar V = e_i * V_i + e_(i+1) * V_(i+1) + ...$ |
+|Auslastung Knoten i| $U_i = lambda_i/mu_i$, bei Typ 1 und 3 $U_i = lambda_i/(m_i * mu_i)$ bei Typ 2 |
+|mittlere Verweilzeit am Knoten i|$bar V_i=1/mu_i * 1/(1-U_i^m)$ für Typ 1 und 2 $bar V_i=1/mu_i$ für Typ 3|
+|mittlere Anzahl Knoten im Netz|$bar N=X * bar V$|
+|reine Bedienzeit ohne Wartezeit im Netz|$bar S = e_i * bar S_1 + e_2 * bar S_2 + ...$|
+|Gesamtanforderung, "demand"	| $bar D_i = e_i * bar S_i$ |
+
+---
+|										|		|		|		|
+|---------------------------------------|-------|-------|-------|
+|  										| M/M/1 | M/M/k | Typ3, "IS" |
+| Auslastung $U_i$ von Knoten i 		| $U_i=X * bar D_i=lambda_i/mu_i * X=e_i * bar S_i * X$ | $U_i=(X * bar D_i)/k=lambda_i / (k * mu)i$ | $U_i=1 - exp(-X * bar D_i)$ |
+| Akkumulierte Verzeilzeiten in i 		| $bar V_i * e_i=bar D_i/(1-U_i)=bar D_i/(1-X * bar D_i)$ | $bar V_i * e_i=bar D_i/(1 - U_i^k)=1/mu_i * e_i/(1-rho^k)=bar D_i/(1-rho^k)$ näherungsweise| $bar V_i * e_i=bar D_i$ |
+| Mittlere Anzahl Aufträge in Knoten i 	| $bar N_i=(X * bar D_i)/(1 - X * bar D_i)$ | $bar N_i=(k * U)/(1-U)i^k=(k * rho_i)/(1-rho_i^k)$ näherungsweise | $bar N_i=X * bar D_i$ |
+
+ - Tuning an der am höchsten ausgelasteten Komponente (größtes U) am effektivsten (solange diese das größte U hat) 
 
 ### Wartenetze geschlossen
 
 |                                         |                                  |
 | --------------------------------------- |----------------------------------|
 |Denkzeit|$Z$|
-|mittlere Verweilzeit/Antwortszeit| $R=bar V = N/X - Z$ |
-|Durchsatz| $X=N/(R+Z)$ |
-|mittlere Zahl aktive Aufträge| $N_a: N_a/N = R/(R+Z) => N_a=X * R$ |
+|mittlere Verweilzeit/Antwortszeit/Reparaturzeit| $R=bar V = N/X - Z$ |
+|Durchsatz| $X=N/(bar V+ bar Z)$ |
+|mittlere Zahl aktive Aufträge| $N_a / N = bar V/(bar V+Z) => N_a=X * bar V$ |
+|mittlere Zahl inaktive Aufträge| $N_ia =X * bar Z$ |
 |relative Besuchshäufigkeit| $r_k$ |
 |Durchsatz am Knoten N| $X(N)=N/(sum_(k=1)^K bar V_k(N) * r_k$ |
+
+
+ - Berechnung der Ankunftsrate wie in offenen Systemen funktioniert hier nicht
+
+#### Mittelwertanalyse
+

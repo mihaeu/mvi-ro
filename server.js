@@ -9,12 +9,17 @@ app.use(express.static('public'));
 app.use(bodyParser.json({limit: '50mb'}));
 
 app.post('/', (req, res) => {
-  if (req.body.file.match(/[\/\.]/)) {
+  if (!req.body.file.match(/[\/\.md$]/)) {
 	  res.statusCode = 400;
+	  res.send({message: 'error'});
 	  return;
   }
-  fs.writeFileSync('doc/' + req.body.file + '.md', req.body.md);
-  fs.writeFileSync('doc/' + req.body.file + '.html', req.body.html);
+  let file = req.body.file.replace('.md', '');
+  fs.writeFileSync('doc/' + file + '.md', req.body.md);
+  fs.writeFileSync('doc/' + file + '.html', req.body.html);
+	
+  console.log('Saved md and html at ' + new Date());
+	
   res.statusCode = 200;
   res.send();
 });
