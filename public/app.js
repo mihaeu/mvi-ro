@@ -1,3 +1,13 @@
+/**
+ * PLEASE FOR THE LOVE OF EVERYTHING THAT IS HOLY TO YOU DO NOT LOOK AT THIS CODE
+ *
+ * I SHOULD BE STUDYING MATH AND INSTEAD I STARTED HACKING THIS TOGETHER
+ *
+ * THIS IS DEFINITELY NOT HOW I WOULD NORMALLY WRITE CODE ;)
+ *
+ * PROMISE!
+ */
+
 'use strict';
 
 let md = window.markdownit({html:true}),
@@ -83,7 +93,7 @@ function post() {
 	http.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	http.onreadystatechange = () => {
 		if(http.readyState == 4 && http.status == 200) {
-			document.getElementById('last-saved').innerHTML = 'last saved ' + new Date().toDateString();
+			document.getElementById('last-saved').innerHTML = 'last saved ' + new Date().toString();
 		} else {
 			document.getElementById('last-saved').innerHTML = 'could\'t save document';
 		}
