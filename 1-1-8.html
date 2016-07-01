@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="tacit.min.css"/>
+</head>
+<body style="width:800px;margin: 0 auto;">
+
+<h2>1.1.8</h2>
+<p>Erstellen Sie ein Scilab-Programm zur Feststellung, ob ein Markov-Prozess periodisch ist. Der Markov-Prozess sei durch eine graphml-Datei gegeben, für die mittels transitionMatrix eine Matrix-Form vorliegt. Das Programm gebe den String „periodisch“ bzw. „nicht periodisch“ aus.</p>
+<p>Im Folgenden ist der Algorithmus in Pascal-ähnlichem Pseudocode angegeben:</p>
+<pre><code class="language-pascal">var Besucht, Verlassen: array[l..max] of Boolean;
+procedure kreisfrei(G : G-Graph);
+var 
+     i: Integer;
+begin
+     Initialisiere Besucht und Verlassen mit false;
+     for jede Ecke i do
+          if Besucht [i] = false then
+               kreissuchen(i);
+     exit('Kreisfrei');
+end
+
+procedure kreissuchen(i: Integer);
+var j: Integer;
+begin
+     Besucht[i] := true;
+     for jeden Nachfolger j von i do
+          if Besucht [j] = false then
+               kreissuchen(j)
+          else
+               if Verlassen[j] = false then
+                    exit('Nicht kreisfrei');
+     Verlassen[i] := true;
+End
+</code></pre>
+<p>Testen Sie Ihr Programm an Hand der Dateien <code>markov_periodisch1.dot</code>,
+<code>markov_periodisch2.dot</code> und <code>markov_periodisch3.dot</code>.</p>
+<pre><code class="language-scilab">function returnString=isPeriodic(P)
+    // initialize entered and left
+    for i=1:size(P, 1)
+        for j=1:size(P, 2)
+            entered(i, j) = %F
+            left(i, j) = %F
+        end
+    end
+
+    // search all edges for connections
+    for i=1:size(P, 1)
+        for j=1:size(P, 2)
+            if entered(i, j) == %F then
+                [entered, left, foundCircle] = findCircle(P, entered, left, i)
+                if foundCircle == %T then
+                    returnString = "periodisch"
+                    return
+                end
+            end
+        end
+    end
+    disp(entered, left)
+    returnString="nicht periodisch"
+endfunction
+
+function [entered, left, foundCircle]=findCircle(P, entered, left, i)
+    foundCircle = %F
+    entered(i, j) = %T
+    for k=1:size(P, 2)
+        
+        if i &lt;&gt; k &amp; P(i, k) == 1 then
+            //disp(entered, "entered")
+            //disp(left, "left")
+            if entered(i, k) == %F then
+                [entered, left, foundCircle] = findCircle(P, entered, left, k)
+                if foundCircle == %T then
+                    return
+                end
+            else
+                if left(i, k) == %F then
+                    // we were already here but couldn't leave, so we know
+                    // that the matrix is not periodical
+                    foundCircle = %T
+                    return
+                end
+            end
+        end
+    end
+    left(i, j) = %T
+endfunction
+</code></pre>
+
+<script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            asciimath2jax: {
+              delimiters: [['$','$'], ['`','`']]
+            }
+          });
+        </script>
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_CHTML"></script>
+</body>
