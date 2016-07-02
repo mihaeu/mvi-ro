@@ -25,9 +25,11 @@ function render() {
 
 	// set tab title
 	if (document.querySelector('#result h1') !== null) {
-		document.title = document.querySelector('#result h1').innerHTML;
+		document.title = 'Editor | ' + document.querySelector('#result h1').innerHTML;
 	} else if (document.getElementsByTagName('h2')[0] !== undefined) {
-		document.title = document.getElementsByTagName('h2')[0].innerHTML;
+		document.title = 'Editor | ' + document.getElementsByTagName('h2')[0].innerHTML;
+	} else {
+		document.title = 'Editor';
 	}
 
 	// render MathJax
