@@ -1,0 +1,7 @@
+digraph {
+    rankdir="LR";
+
+    0 -> 1 [label="2λ"]
+    1 -> 2 [label="λ"]
+    1 -> 0 [label="μ"]
+}
