@@ -82,6 +82,8 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 | Verteilung Verweilzeit        | $F_V(x)=P(V\le x)=1-e^{-\frac{x}{\bar{V}}}$ für $x\ge 0​$ |
 | p-Quantil                     | $x_p=-\bar{V}\cdot ln(1-p)$ für $0\ge p>1$ |
 
+ - Durchsatz $X = U = bar S * lambda$, wenn Last bewältigt werden kann ($U < 1$)
+
 ### M/M/s
 
 |                           |                                          |
