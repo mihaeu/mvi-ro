@@ -69,6 +69,7 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 |                               |                                          |
 | ----------------------------- | ---------------------------------------- |
 | Verweilzeit                   | $V=W+S$                                  |
+|Satz von Little|$bar N = bar V * lambda$|
 | Ankunftsrate                  | $\lambda=\frac{1}{Zwischenankunftsrate}$ |
 | Bedienrate                    | $\mu=\frac{1}{\bar{S}}$                  |
 | mittlere Bedienzeit           | $\bar{S}=\frac{1}{\mu}$                  |
