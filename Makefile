@@ -5,5 +5,5 @@ dump:
 
 build:
 	echo "<h1>MVI</h1><br><ul>" > index.html
-	find doc -name "*.md" | sed "s/.md//" | sed "s/doc\///" | xargs -I {} echo '<li><a href="{}.html">{}</a></li>' >> index.html
+	find doc -name "*.md" | sed "s/.md//" | sed "s/doc\///" | sort | xargs -I {} echo '<li><a href="{}.html">{}</a></li>' >> index.html
 	echo "</ul><br><br>`date`" >> index.html
