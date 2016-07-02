@@ -24,7 +24,9 @@ function render() {
 	document.getElementById('result').innerHTML = md.render(math.value);
 
 	// set tab title
-	if (document.getElementsByTagName('h2')[0] !== undefined) {
+	if (document.querySelector('#result h1') !== null) {
+		document.title = document.querySelector('#result h1').innerHTML;
+	} else if (document.getElementsByTagName('h2')[0] !== undefined) {
 		document.title = document.getElementsByTagName('h2')[0].innerHTML;
 	}
 

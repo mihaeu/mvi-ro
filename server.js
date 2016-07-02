@@ -6,6 +6,7 @@ const fs = require('fs');
 
 const app = express();
 app.use(express.static('public'));
+app.use(express.static('doc'));
 app.use(bodyParser.json({limit: '50mb'}));
 
 app.post('/', (req, res) => {
@@ -52,10 +53,11 @@ let template = (title, content) => {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>${title}</title>
+    <link rel="stylesheet" type="text/css" href="http://yegor256.github.io/tacit/tacit.min.css"/>
     <link rel="stylesheet" type="text/css" href="tacit.min.css"/>
 </head>
-<body style="width:800px;margin: 0 auto;">
+<body style="width:1000px;margin: 0 auto;">
 ${title}
 ${content}
 <script type="text/x-mathjax-config">
