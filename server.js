@@ -6,6 +6,7 @@ const fs = require('fs');
 
 const app = express();
 app.use(express.static('public'));
+app.use(express.static('doc'));
 app.use(bodyParser.json({limit: '50mb'}));
 
 app.post('/', (req, res) => {
