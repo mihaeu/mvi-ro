@@ -66,16 +66,16 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 
 ### M/M/1
 
-|                               |                                          |
-| ----------------------------- | ---------------------------------------- |
-| Verweilzeit                   | $V=W+S$                                  |
-|Satz von Little|$bar N = bar V * lambda$|
-| Ankunftsrate                  | $\lambda=\frac{1}{Zwischenankunftsrate}$ |
+|                               |                                          | |
+| ----------------------------- | ---------------------------------------- | - |
+| Verweilzeit                   | $V=W+S$                                  ||
+|Satz von Little|$bar N = bar V * lambda$||
+| Ankunftsrate                  | $\lambda=\frac{1}{Zwischenankunftsrate}$ ||
 | Bedienrate                    | $\mu=\frac{1}{\bar{S}}$                  |
 | mittlere Bedienzeit           | $\bar{S}=\frac{1}{\mu}$                  |
 | zeitl. Auslastung/Durchsatz   | $\rho=U=\frac{\lambda}{\mu}=\lambda\cdot\bar{S}=P("muss-warten")$ |
 | mittlere Verweilzeit          | $\bar{V}=\frac{1}{\mu-\lambda}=\bar{S}\cdot\frac{1}{1-U}$ |
-| mittlere Verweilzeit im Cache | $\bar{V}_{Cache}=\frac{Anzahl Blöcke}{\lambda\cdot(1-Trefferwskeit)}$ |
+| mittlere Verweilzeit im Cache | $\bar{V}_{Cache}=\frac{Anzahl Blöcke}{\lambda\cdot(1-Trefferwskeit)}$ |3.1.5|
 | mittlere Wartezeit            | $\bar{W}=\frac{\lambda}{\mu}\cdot\frac{1}{\mu-\lambda}=\bar{S}\cdot\frac{U}{1-U}$ |
 | mittlere Anzahl im System     | $\bar{N}=\frac{U}{1-U}=\frac{\lambda}{\mu-\lambda}$ |
 | mittlere Anzahl Wartender     | $\bar{N}_W=U^2\cdot\frac{1}{1-U}=\lambda\cdot \bar{W}$ |
