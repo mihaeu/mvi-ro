@@ -54,8 +54,37 @@ let template = (title, content) => {
 <head>
     <meta charset="UTF-8">
     <title>${title}</title>
-    <link rel="stylesheet" type="text/css" href="http://yegor256.github.io/tacit/tacit.min.css"/>
-    <link rel="stylesheet" type="text/css" href="tacit.min.css"/>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid gray;
+        }
+
+        tr {
+            height: 30px;
+        }
+
+        td:nth-child(1), th:nth-child(1) {
+            width: 300px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: yellow;
+        }
+    </style>
 </head>
 <body style="width:1000px;margin: 0 auto;">
 ${title}
