@@ -111,6 +111,6 @@ function post() {
 
 fetchFiles();
 
-setInterval(() => {
-	render();
-}, 5000);
+// setInterval(() => {
+// 	render();
+// }, 5000);

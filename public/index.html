@@ -36,6 +36,7 @@
         <input type="text" placeholder="filename" id="file"> <span id="last-saved"></span>
         <select onchange="load()" name="files" id="files"></select> <button onclick="fetchFiles()">Refresh</button>
         <button onclick="post()">Save</button>
+        <button onclick="render()">Render</button>
         <br>
         <br>
         <div id="test">
@@ -53,7 +54,6 @@
             }
           });
         </script>
-        <!--<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>-->
         <script src="bower_components/MathJax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
         <script src="app.js"></script>
     </body>
