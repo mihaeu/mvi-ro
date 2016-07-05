@@ -12,7 +12,7 @@
 |                                           |                                 |
 | ----------------------------------------- | --------------------------------|
 | Wahrscheinlichkeit für eine Zustandsfolge | $vec p_n=(P(X_n=0), P(X_n=1), P(X_n=2), ...)=vec p_n=vec p_(n-1) * P=vec p_0*P^n$|
-||$P(A \| B)=(P(A uu B))/(P(B))$|
+||$P(A,B)=P(B,A)=P(A \| B)=(P(A uu B))/(P(B))$|
 ||$P(A nn B)=P(B nn A) * P(B)$|
 ||$P(x_2 = ? \| x_1=?, x_0=?)=P(x_2=?\|x_1=?)$|
 ||$P(x_2=?,x_1=?\|x_0=?)= $P(x_2 = ? \| x_1=?, x_0=?) * $P(x_1=?, x_0=?)$|
@@ -34,11 +34,19 @@
 
 ### Erzeuger/Verbraucher
 
-### Rekurrenz
+### Rekurrenz und Absorptions-/Verweilzeit
 
 |                                         |                                  |
 | --------------------------------------- |----------------------------------|
 | Zeitschritte bis ich wieder in i bin    | $R_i=1/pi_i$ |
+| Verweilzeit, <br>mittlere Aufenthaltsdauer im Zustand i<br>Skript 1-28 | $ T_i=1/(1-p_(ii))=1/(sum_(i ne j) p_(ij))=sum_(n=1)^oo n*(1-p_(ii))*p_(ii)^(n-1)=1/(1-p_(ii)) $|
+|Mittlere Aufenthalsdauer in der Menge M|$T_(M,i)=1 + sum_(k in M) p_(ik) * T_(M,k)$ <br> $(E-P') * vec T_M=((1),(vdots),(1))$|
+|Mittlere Absorptionszeit<br>Skript 1-37|$(E-P') * vec A=((1),(vdots),(1))$|
+|Mittlere Absorptionszeit bei Start in i<br>Skript 1-39|$A_i=sum_(k=1)^m v_(i,k)$|
+|Besuchshäufigkeiten, Visit Counts<br>mittlere Anzahl Besuche bei Start in j und Absorption in i<br>Skript 1-40, 1-43|$vec v_i * (E-P')=vec e_i$<br>$V*(E-P')=E$|
+|Wahrscheinlichkeit, dass bei Start in i, Absorption in j stattfindet<br>Skript 1-42|$vec a_i=vec v_i * C$|
+|Rekurrenzzeiten<br>Dauer zwischen aufeinanderfolgenden Besuchen|$R_i=1/pi_i=1+sum_(k ne i) p_(ik) * T_(M,k) = 1+ p_(ij) * T_(M,j)$, falls $p_(ii)+p_(ij)=1$|
+|Distanz|$D_(i,N)=A_i$|
 
 
 ### Bestellpolitik
@@ -50,6 +58,25 @@
 |Durchschnittskosten pro Zeit|$D(Q)=Q/2 * h + Kr/Q$|
 |Lagergrößenformel für min. Kosten| $root ()((2 * r * k) / h)$ |
 | Mittlerer Lagerbestand         | $bar L = sum_(i=0)pi_0$  |
+
+## Kapitel 2 - Markovketten mit stetiger Zeit
+
+|   |   |
+|---|---|
+|  Gleichgewicht (falls irreduzibel,<br>Periodizität egal, da $Delta t$ beliebig klein werden darf) | $vec pi * Lambda = 0$ (P)<br>$sum vec pi_i=1$ (N)  |
+|Konvergenzsatz $n -> oo$ <br>(wenn irreduzibel)|$lim_(n->oo) p_i(t)=pi_i$|
+|Lokales Gleichgewicht|$sum_(i in K)sum_(i in K) pi_i * lambda_(ij) = sum_(i in K)sum_(i in K) pi_j * lambda_(ji)$|
+|Lokales Gleichg. bei Geburts-Sterbeprozess|$pi_i * lambda_(i,i+1)=pi_(i+1)*lambda_(i+1,i)$|
+|Mittl. Aufenthaltsdauer/Verweilzeit T_i in i|$T_i=-1/lambda_(ii)=1/sum_(i ne j) lambda_(ij)$|
+|Mittl. Aufenthaltsdauer/Verweilzeit T_M in M|$-sum_(k in M) lambda_(ik)*T_(M,k)=1; M=Lambda'$ <br> $-Lambda'*vec T_M=((1),(vdots),(1))$<br>$T_M=sum_(k ne i)q_(i,k)*T_(M,k)$|
+|Absorptionszeit|$-Lambda' * vec A  =  ((1),(vdots),(1))$<br>$A_i=sum_(k=0)^m v_(i,k)$|
+|Besuchshäufigkeiten, Visit Counts in i<br>bzw. Besuchszeiten bei HMKS|$-vec v_i * Lambda'=vec e_i$<br>$-V * Lambda' = E$|
+|Absorptionswahrscheinlichkeiten|$vec a_i = vec v_i * C$|
+|Rekurrenzzeiten|$R_i=-1/(lambda_(ii)*pi_i)$<br>$R_i=T_i+sum_(k ne i) q_(ik) * T_(M,k)$|
+|Distanz (Dauer von Betreten in i bis Betreten in j|$D_(ij)=A_i$|
+|Lebensdauer, <br>MTTDL RAID-1<br> (Mean Time to Data Loss)|$ M\T\TDL_(RAID-1)=(M\T\TF_("Platte")^2)/(2 * "MTTR"_("Platte"))$|
+|MTTDL RAID-3/4/5|$ M\T\TDL_(RAID-3//4//5)=(M\T\TF_("Platte")^2)/(n * (n-1) * "MTTR"_("Platte"))$|
+|MTTDL RAID-5|$ M\T\TDL_(RAID-1)=(M\T\TF_("Platte")^3)/(n * (n-1) * (n-2) * "MTTR"_("Platte")^2)$|
 
 ## Kapitel 3 - Wartesysteme
 
