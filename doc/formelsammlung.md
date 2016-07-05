@@ -1,8 +1,6 @@
 # Formelsammlung
 
-## Allgemein
-
-|                    |                                 |
+| Allgemein          |                                 |
 | ------------------ | --------------------------------|
 | geometrische Reihe für Teilsummen | $s_n = sum_(k=0)^n q^k = (1-q^(n+1)) / (1-q)$, falls $q ne 1$ |
 | geometrische Reihe für Grenzwert | $sum_(k=0)^oo q^k = 1/(1-q)$, konvergiert falls $ \|q\|<1 $, sonst divergiert sie |
@@ -20,9 +18,9 @@
 |Gleichgewicht|$pi_j=sum_(i=0)^oo pi_i * p_(ij)$|
 ||$vec pi=vec pi * P$|
 
-### Prozessoren und Speicher
+### 
 
-|                                         |                                  |
+| Prozessoren und Speicher                |                                  |
 | --------------------------------------- |----------------------------------|
 | Verfügbarkeit bei Prozessoren/Speichern | $V=pi_0$                         |
 | Stretching Faktor                       | $S_A=T_A^(real)/T_A=n/m=n/(n-n(pi_("Warte-Zustand 1")+pi_("Warte-Zustand 2")+...))$|

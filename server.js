@@ -58,7 +58,16 @@ let template = (title, content) => {
         table {
             border-collapse: collapse;
             width: 100%;
+            page-break-inside:auto;
         }
+		
+		h2 {
+			page-break-before: always;
+		}
+		
+		thead { 
+			display:table-header-group 
+		}
 
         table, th, td {
             border: 1px solid gray;
@@ -66,6 +75,8 @@ let template = (title, content) => {
 
         tr {
             height: 30px;
+            page-break-inside:avoid; 
+            page-break-after:auto;
         }
 
         td:nth-child(1), th:nth-child(1) {
