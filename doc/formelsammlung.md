@@ -61,76 +61,30 @@
 
 ### Erzeuger/Verbraucher
 
-<<<<<<< HEAD
-### Rekurrenz und Absorptions-/Verweilzeit
-
-|                                         |                                  |
-| --------------------------------------- |----------------------------------|
-| Zeitschritte bis ich wieder in i bin    | $R_i=1/pi_i$ |
-| Verweilzeit, <br>mittlere Aufenthaltsdauer im Zustand i<br>Skript 1-28 | $ T_i=1/(1-p_(ii))=1/(sum_(i ne j) p_(ij))=sum_(n=1)^oo n*(1-p_(ii))*p_(ii)^(n-1)=1/(1-p_(ii)) $|
-|Mittlere Aufenthalsdauer in der Menge M|$T_(M,i)=1 + sum_(k in M) p_(ik) * T_(M,k)$ <br> $(E-P') * vec T_M=((1),(vdots),(1))$|
-|Mittlere Absorptionszeit<br>Skript 1-37|$(E-P') * vec A=((1),(vdots),(1))$|
-|Mittlere Absorptionszeit bei Start in i<br>Skript 1-39|$A_i=sum_(k=1)^m v_(i,k)$|
-|Besuchshäufigkeiten, Visit Counts<br>mittlere Anzahl Besuche bei Start in j und Absorption in i<br>Skript 1-40, 1-43|$vec v_i * (E-P')=vec e_i$<br>$V*(E-P')=E$|
-|Wahrscheinlichkeit, dass bei Start in i, Absorption in j stattfindet<br>Skript 1-42|$vec a_i=vec v_i * C$|
-|Rekurrenzzeiten<br>Dauer zwischen aufeinanderfolgenden Besuchen|$R_i=1/pi_i=1+sum_(k ne i) p_(ik) * T_(M,k) = 1+ p_(ij) * T_(M,j)$, falls $p_(ii)+p_(ij)=1$|
-|Distanz|$D_(i,N)=A_i$|
-
-
-### Bestellpolitik
-
-|  |                                  |
-| ---------------- | -------------------------------- |
-| Mittlerer Lagerbestand         | $Q/2$  |
-|aktueller Lagerbestand| $L(t) = Q-r * t$ <br> $L(t_0)=0$ <br> $t_0=Q/r$|
-|Durchschnittskosten pro Zeit|$D(Q)=Q/2 * h + Kr/Q$|
-|Lagergrößenformel für min. Kosten| $root ()((2 * r * k) / h)$ |
-| Mittlerer Lagerbestand         | $bar L = sum_(i=0)pi_0$  |
-=======
 ## Kapitel 2 - Markovketten mit stetiger Zeit
 
-|   |   |
-|---|---|
-|  Gleichgewicht (falls irreduzibel,<br>Periodizität egal, da $Delta t$ beliebig klein werden darf) | $vec pi * Lambda = 0$ (P)<br>$sum vec pi_i=1$ (N)  |
-|Konvergenzsatz $n -> oo$ <br>|$lim_(n->oo) p_i(t)=pi_i$, falls irreduzibel|
-|Lokales Gleichgewicht|$sum_(i in K)sum_(i in K) pi_i * lambda_(ij) = sum_(i in K)sum_(i in K) pi_j * lambda_(ji)$|
-|Lokales Gleichg. bei Geburts-Sterbeprozess|$pi_i * lambda_(i,i+1)=pi_(i+1)*lambda_(i+1,i)$|
+|   |   |Quelle|
+|---|---|--|
+|  Gleichgewicht (falls irreduzibel,<br>Periodizität egal, da $Delta t$ beliebig klein werden darf) | $vec pi * Lambda = 0$ (P)<br>$sum vec pi_i=1$ (N)  |2.2.1|
+|Konvergenzsatz $n -> oo$ <br>|$lim_(n->oo) p_i(t)=pi_i$, falls irreduzibel|2.2.1|
+|Lokales Gleichgewicht|$sum_(i in K)sum_(i in K) pi_i * lambda_(ij) = sum_(i in K)sum_(i in K) pi_j * lambda_(ji)$|2.2.1|
+|Lokales Gleichg. bei Geburts-Sterbeprozess|$pi_i * lambda_(i,i+1)=pi_(i+1)*lambda_(i+1,i)$|?|
 |Mittl. Aufenthaltsdauer/Verweilzeit $T_i$ in i|$T_i=-1/lambda_(ii)=1/sum_(i ne j) lambda_(ij)$|
-|Mittl. Aufenthaltsdauer/Verweilzeit $T_M$ in M|$-sum_(k in M) lambda_(ik)*T_(M,k)=1; M=Lambda_M$ <br> $-Lambda_M * vec T_M=((1),(vdots),(1))$<br>$T_M=sum_(k ne i)q_(i,k)*T_(M,k)$|
-|Absorptionszeit|$-Lambda_(na) * vec A  =  ((1),(vdots),(1))$<br>$A_i=sum_(k=0)^m v_(i,k)$|
-|Besuchshäufigkeiten, Visit Counts in i<br>bzw. Besuchszeiten bei HMKS|$-vec v_i * Lambda_(na)=vec e_i$<br>$-V * Lambda_(na) = E => V=Lambda_(na) ^(-1)$|
-|Absorptionswahrscheinlichkeiten|$vec a_i = vec v_i * Lambda_a$|
-|Rekurrenzzeiten|$R_i=-1/(lambda_(ii)*pi_i)$<br>$R_i=T_i+sum_(k ne i) q_(ik) * T_(M,k)$<br>$q_(ik)=lambda_ik/(sum_(j ne i) lambda_(ij))$<br>$R_i=T_i + T_M,j$, falls $j in Z;j ne i;lambda_(ii)=-lambda_(ij)$|
-|Distanz (Dauer von Betreten in i bis Betreten in j|$D_(ij)=A_i$|
+|Mittl. Aufenthaltsdauer/Verweilzeit $T_M$ in M|$-sum_(k in M) lambda_(ik)*T_(M,k)=1; M=Lambda_M$ <br> $-Lambda_M * vec T_M=((1),(vdots),(1))$<br>$T_M=sum_(k ne i)q_(i,k)*T_(M,k)$|2.4.2|
+|Absorptionszeit|$-Lambda_(na) * vec A  =  ((1),(vdots),(1))$<br>$A_i=sum_(k=0)^m v_(i,k)$|2.5.3|
+|Besuchshäufigkeiten, Visit Counts in i<br>bzw. Besuchszeiten bei HMKS|$-vec v_i * Lambda_(na)=vec e_i$<br>$-V * Lambda_(na) = E => V=Lambda_(na) ^(-1)$|2.5.4|
+|Absorptionswahrscheinlichkeiten|$vec a_i = vec v_i * Lambda_a$|2.5.4|
+|Rekurrenzzeiten|$R_i=-1/(lambda_(ii)*pi_i)$<br>$R_i=T_i+sum_(k ne i) q_(ik) * T_(M,k)$<br>$q_(ik)=lambda_ik/(sum_(j ne i) lambda_(ij))$<br>$R_i=T_i + T_M,j$, falls $j in Z;j ne i;lambda_(ii)=-lambda_(ij)$|2.6.2|
+|Distanz (Dauer von Betreten in i bis Betreten in j|$D_(ij)=A_i$|?|
 
-|Lebensdauer / Verfügbarkeit||
-|-|-|
-|MTTF(ailure)|$1/lambda$|
-|MTTR(epair)|$1/mu$|
-|Verfügbarkeit|$V=sum_(i,j>0) * pi_(i,j)$|
-|Lebensdauer, <br>MTTDL RAID-1<br> (Mean Time to Data Loss)|$ M\T\TDL_(RAID-1)=(M\T\TF_("Platte")^2)/(2 * "MTTR"_("Platte"))$|
-|MTTDL RAID-3/4/5|$ M\T\TDL_(RAID-3//4//5)=(M\T\TF_("Platte")^2)/(n * (n-1) * "MTTR"_("Platte"))$|
-|MTTDL RAID-5|$ M\T\TDL_(RAID-1)=(M\T\TF_("Platte")^3)/(n * (n-1) * (n-2) * "MTTR"_("Platte")^2)$|
->>>>>>> develop
-
-## Kapitel 2 - Markovketten mit stetiger Zeit
-
-|   |   |
-|---|---|
-|  Gleichgewicht (falls irreduzibel,<br>Periodizität egal, da $Delta t$ beliebig klein werden darf) | $vec pi * Lambda = 0$ (P)<br>$sum vec pi_i=1$ (N)  |
-|Konvergenzsatz $n -> oo$ <br>(wenn irreduzibel)|$lim_(n->oo) p_i(t)=pi_i$|
-|Lokales Gleichgewicht|$sum_(i in K)sum_(i in K) pi_i * lambda_(ij) = sum_(i in K)sum_(i in K) pi_j * lambda_(ji)$|
-|Lokales Gleichg. bei Geburts-Sterbeprozess|$pi_i * lambda_(i,i+1)=pi_(i+1)*lambda_(i+1,i)$|
-|Mittl. Aufenthaltsdauer/Verweilzeit T_i in i|$T_i=-1/lambda_(ii)=1/sum_(i ne j) lambda_(ij)$|
-|Mittl. Aufenthaltsdauer/Verweilzeit T_M in M|$-sum_(k in M) lambda_(ik)*T_(M,k)=1; M=Lambda'$ <br> $-Lambda'*vec T_M=((1),(vdots),(1))$<br>$T_M=sum_(k ne i)q_(i,k)*T_(M,k)$|
-|Absorptionszeit|$-Lambda' * vec A  =  ((1),(vdots),(1))$<br>$A_i=sum_(k=0)^m v_(i,k)$|
-|Besuchshäufigkeiten, Visit Counts in i<br>bzw. Besuchszeiten bei HMKS|$-vec v_i * Lambda'=vec e_i$<br>$-V * Lambda' = E$|
-|Absorptionswahrscheinlichkeiten|$vec a_i = vec v_i * C$|
-|Rekurrenzzeiten|$R_i=-1/(lambda_(ii)*pi_i)$<br>$R_i=T_i+sum_(k ne i) q_(ik) * T_(M,k)$|
-|Distanz (Dauer von Betreten in i bis Betreten in j|$D_(ij)=A_i$|
-|Lebensdauer, <br>MTTDL RAID-1<br> (Mean Time to Data Loss)|$ M\T\TDL_(RAID-1)=(M\T\TF_("Platte")^2)/(2 * "MTTR"_("Platte"))$|
-|MTTDL RAID-3/4/5|$ M\T\TDL_(RAID-3//4//5)=(M\T\TF_("Platte")^2)/(n * (n-1) * "MTTR"_("Platte"))$|
-|MTTDL RAID-5|$ M\T\TDL_(RAID-1)=(M\T\TF_("Platte")^3)/(n * (n-1) * (n-2) * "MTTR"_("Platte")^2)$|
+|Lebensdauer / Verfügbarkeit||Quelle|
+|-|-|-|
+|MTTF(ailure)|$1/lambda$|-|
+|MTTR(epair)|$1/mu$|-|
+|Verfügbarkeit|$V=sum_(i,j>0) * pi_(i,j)$|-|
+|Lebensdauer, <br>MTTDL RAID-1<br> (Mean Time to Data Loss)|$ M\T\TDL_(RAID-1)=(M\T\TF_("Platte")^2)/(2 * "MTTR"_("Platte"))$|2.5.6|
+|MTTDL RAID-3/4/5|$ M\T\TDL_(RAID-3//4//5)=(M\T\TF_("Platte")^2)/(n * (n-1) * "MTTR"_("Platte"))$|2.5.6|
+|MTTDL RAID-5|$ M\T\TDL_(RAID-1)=(M\T\TF_("Platte")^3)/(n * (n-1) * (n-2) * "MTTR"_("Platte")^2)$|2.5.6|
 
 ## Kapitel 3 - Wartesysteme
 
@@ -145,21 +99,21 @@
 
 Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 
-| M/M/1                             |                                          | |
-| ----------------------------- | ---------------------------------------- | - |
-| Verweilzeit                   | $V=W+S$                                  ||
-|Satz von Little|$bar N = bar V * lambda$<br>$bar N_W=bar W * lambda$||
-| Ankunftsrate                  | $lambda=1/"Zwischenankunftsrate"=U * q$ ||
-| Bedienrate                    | $mu=1/bar S$                  |
-| mittlere Bedienzeit           | $bar S = 1/mu$                  |
-| zeitl. Auslastung/Durchsatz,<br>Wahrscheinlichkeit, dass Auftrag warten muss   | $U=rho=lambda/mu=lambda * bar S=P("muss-warten")$<br>$U=X$, falls $U < 1$ |
-| mittlere Verweilzeit          | $bar V=1/mu-lambda=bar S * 1/(1-U)$ |
+| M/M/1                   |                            |Quelle |
+| ----------------------- | -------------------------- | ----- |
+| Verweilzeit                   | $V=W+S$                                  |3.1.1|
+|Satz von Little|$bar N = bar V * lambda$<br>$bar N_W=bar W * lambda$|3.1.3|
+| Ankunftsrate                  | $lambda=1/"Zwischenankunftsrate"=U * q$ |3.1.1|
+| Bedienrate                    | $mu=1/bar S$                  |3.1.1|
+| mittlere Bedienzeit           | $bar S = 1/mu$              |3.1.1|
+| zeitl. Auslastung/Durchsatz,<br>Wahrscheinlichkeit, dass Auftrag warten muss   | $U=rho=lambda/mu=lambda * bar S=P("muss-warten")$<br>$U=X$, falls $U < 1$ |3.1.2|
+| mittlere Verweilzeit          | $bar V=1/mu-lambda=bar S * 1/(1-U)$ |3.1.6|
 | mittlere Verweilzeit im Cache | $bar V_"Cache"="Anzahl Blöcke"/(lambda *(1-"Trefferwahrscheinlichkeit"))$ |3.1.5|
-| mittlere Wartezeit            | $bar W=lambda/mu *1/(mu-lambda)=bar S  *U/(1-U)$ |
-| mittlere Anzahl im System     | $bar N=U/(1-U)=lambda/(mu-lambda)=lambda * bar V$ |
-| mittlere Anzahl Wartender     | $\bar{N}_W=U^2\cdot\frac{1}{1-U}=\lambda\cdot \bar{W}$ |
-| Verteilung Verweilzeit        | $F_V(x)=P(V\le x)=1-e^{-\frac{x}{\bar{V}}}$ für $x\ge 0​$ |
-| p-Quantil                     | $x_p=-\bar{V}\cdot ln(1-p)$ für $0\ge p>1$ |
+| mittlere Wartezeit            | $bar W=lambda/mu *1/(mu-lambda)=bar S  *U/(1-U)$ |3.1.6|
+| mittlere Anzahl im System     | $bar N=U/(1-U)=lambda/(mu-lambda)=lambda * bar V$ |3.1.6|
+| mittlere Anzahl Wartender     | $\bar{N}_W=U^2\cdot\frac{1}{1-U}=\lambda\cdot \bar{W}$ |3.1.6|
+| Verteilung Verweilzeit        | $F_V(x)=P(V\le x)=1-e^{-\frac{x}{\bar{V}}}$ für $x\ge 0​$ |3.1.6|
+| p-Quantil                     | $x_p=-\bar{V}\cdot ln(1-p)$ für $0\ge p>1$ |3.1.6|
 
 | M/M/s                      |                                 |Quelle|
 | ------------------------- | ---------------------------------|------|
