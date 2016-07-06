@@ -113,6 +113,7 @@
 |MTTDL RAID-3/4/5|$ M\T\TDL_(RAID-3//4//5)=(M\T\TF_("Platte")^2)/(n * (n-1) * "MTTR"_("Platte"))$|2.5.6|
 |MTTDL RAID-5|$ M\T\TDL_(RAID-1)=(M\T\TF_("Platte")^3)/(n * (n-1) * (n-2) * "MTTR"_("Platte")^2)$|2.5.6|
 
+
 ## Kapitel 3 - Wartesysteme
 
 | Kendall Notation |                                  |
@@ -223,4 +224,3 @@ falls nur D und X bekannt (Quelle: 3.2.5)
 |Durchsatz am Knoten N| $X(N)=N/(sum_(k=1)^K bar V_k(N) * r_k$ |3.2.9|
 |Verweilzeit bei N Aufträgen im Knoten K|$V_k(N)=S_k$, bei Verzögerungsknoten<br>$V_k(N)=bar S_k + bar S_k * bar N_k(N-1)$, bei Warteknoten<br>$barN_k=0$|3.2.9|
 |mittlere Anzahl Aufträge in k bei N Aufträgen|$bar N_k(N)=X(N) * r_k * bar V_k(N)$|3.2.9|
-
