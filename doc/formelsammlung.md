@@ -102,11 +102,8 @@
 |Rekurrenzzeiten|$R_i=-1/(lambda_(ii)*pi_i)$<br>$R_i=T_i+sum_(k ne i) q_(ik) * T_(M,k)$<br>$q_(ik)=lambda_ik/(sum_(j ne i) lambda_(ij))$<br>$R_i=T_i + T_M,j$, falls $j in Z;j ne i;lambda_(ii)=-lambda_(ij)$|2.6.2|
 |Distanz (Dauer von Betreten in i bis Betreten in j|$D_(ij)=A_i$|?|
 
-<<<<<<< HEAD
-=======
 <br>
 
->>>>>>> develop
 |Lebensdauer / Verfügbarkeit||Quelle|
 |-|-|-|
 |MTTF(ailure)|$1/lambda$|-|
@@ -144,11 +141,8 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 | mittlere Anzahl Wartender     | $\bar{N}_W=U^2\cdot\frac{1}{1-U}=\lambda\cdot \bar{W}$ |3.1.6|
 | Verteilung Verweilzeit        | $F_V(x)=P(V\le x)=1-e^{-\frac{x}{\bar{V}}}$ für $x\ge 0​$ |3.1.6|
 | p-Quantil                     | $x_p=-\bar{V}\cdot ln(1-p)$ für $0\ge p>1$ |3.1.6|
-<<<<<<< HEAD
-=======
 
 <br>
->>>>>>> develop
 
 | M/M/s                      |                                 |Quelle|
 | ------------------------- | ---------------------------------|------|
