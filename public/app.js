@@ -14,6 +14,9 @@ let md = window.markdownit({html:true}),
 	math = document.getElementById('math'),
 	text = math.value;
 
+/**
+ * Render Markdown, Graphviz Dot and AsciiMath/LaTeX formulae
+ */
 function render() {
 	let newText = math.value;
 	if (newText === text) {
@@ -69,6 +72,9 @@ function fetchFile(file) {
 	http.send(JSON.stringify({file: file}));
 }
 
+/**
+ * Fetches a list of all available files
+ */
 function fetchFiles() {
 	let http = new XMLHttpRequest();
 	http.open("GET", '/files', true);
@@ -85,6 +91,9 @@ function fetchFiles() {
 	http.send();
 }
 
+/**
+ * Saves markdown and html content if the content changed
+ */
 function post() {
 	if (document.getElementById('file') === document.activeElement
 		|| document.getElementById('file').value.length == 0
@@ -110,7 +119,3 @@ function post() {
 }
 
 fetchFiles();
-
-// setInterval(() => {
-// 	render();
-// }, 5000);
