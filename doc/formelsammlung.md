@@ -39,18 +39,21 @@
 |b|Anzahl bestellter Einheiten|
 |S|Lagerkapazität|
 |s|Bestellpunkt|
+|$v_i$|Wahrscheinlichkeit, dass i verbraucht wird|
+|r|$"Bestellrate"="Einheit"/"Zeit"="Verbrauch"$|
 |Fall i) Zustandsraum bei Vormerkung |${..., -2, -1,0,1,2,...,S}$|
 |Fall ii) Zustandsraum ohne Vormerkung|${0,1,2,...,S}$|
 | Mittlerer Lagerbestand         | $Q/2$  |
 |aktueller Lagerbestand| $L(t) = Q-r * t$ <br> $L(t_0)=0$ <br> $t_0=Q/r$|
 |Durchschnittskosten pro Zeit|$D(Q)=Q/2 * h + Kr/Q$|
-|Lagergrößenformel für min. Kosten| $Q_(opt)=root ()((2 * r * k) / h)$ |
-| Mittlerer Lagerbestand         | $bar L = sum_(i=0)pi_0$  |
-|zu bestellende Einheiten|$b_n=0$, für $X_n ge s$<br>$b_n=S-X_n$, für $X_n le s$|
+|Lagergrößenformel für min. Kosten| $Q_(opt)=root ()((2 * r * K) / h)$ |
+| Mittlerer Lagerbestand         | $bar L = sum_(i=0)^S pi_i * i$  |
+|zu bestellende Einheiten|$b_n=0$, für $X_n ge s$<br>$b_n=S-X_n$, für $X_n < s$|
 |Mittlere Kosten pro Periode|$G=sum_(k=0)^c pi_k * R(k)$|
 |Kosten für eine Bestellung der Höhe b|$B(b)=0$, für $b=0$<br>$B(b)=K+c * b$, für $b > 0$|
-|Lager-/Fehlmengenkosten|$K(x)=h * x$, für $x ge 0$ "Lagerkosten"<br>$K(X)=-f * x$, für $x < 0$ "Fehlmengenkosten"<br>$(h, f > 0)$|
-|Gesamtkosten einer Periode<br>(i = Endbestand)|$R_i=sum_(k=0)^i h * (i - k) * v_k + sum_(k ge i +1) f * (k-i) * v_k$, für $i ge s$<br>$R_i=K+c * (S - i) + sum_(k=0)^S h* (S-k) * v_k + sum_(k=S+1) f * (k-S) * v_k$, für $i < s$|
+|Lager-/Fehlmengenkosten|$K(x)=h * x$, für $x ge 0$ "Lagerkosten"<br>$K(x)=-f * x$, für $x < 0$ "Fehlmengenkosten"<br>$(h, f ge 0)$|
+|Gesamtkosten einer Periode<br>(i = Endbestand)|$R_i=sum_(K=0)^i h * (i - k) * v_k + sum_(k ge i +1) f * (k-i) * v_k$, für $i ge s$<br>$R_i=K+c * (S - i) + sum_(k=0)^S h* (S-k) * v_k + sum_(k ge S+1) f * (k-S) * v_k$, für $i < s$|
+|Zeit bis Lager leer ist|$=>$Zustand Lagerbestand 0 modifizieren, so dass er absorbierend ist, dann Absorptionszeit berechnen|
 
 <br>
 
@@ -82,7 +85,7 @@
 |Wahrscheinlichkeit Zustand i<br>(unendlicher Puffer)|$pi_i=(p/q)^i * (1-p/q)$|1.3.5|
 |Underflow/Unterlauf<br>(unendlicher Puffer)|$p("underflow")=pi_0 * q=q-p$|1.3.5|
 |Mittlere Füllung<br>(unendlicher Puffer)|$f_oo=p/(q-p)$|1.3.5|
-|Mittlere Aufenthaltszeit<br>(unendlicher Puffer)|w=(f+1)/q=1/(q-p)|1.3.5|
+|Mittlere Aufenthaltszeit<br>(unendlicher Puffer)|$w=(f+1)/q=1/(q-p)$|1.3.5|
 |Wahrscheinlichkeit Erzeuger wartet|$pi_(EW)=pi_0 * q$|1.3.5|
 |Wahrscheinlichkeit Verbraucher wartet|$pi_(VW)=pi_N * p$|1.3.5|
 
@@ -145,6 +148,15 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 
 <br>
 
+| M/M/2 (Bedienrate $mu$)   |                                  |Quelle|
+| ------------------------- | ---------------------------------|------|
+| mittlere Verweilzeit      | $bar V=1/mu * a^2/(4-a^2)$ |Übung 3.1.10|
+| zeitl. Auslastung,<br>Wahrscheinlichkeit Auftrag muss warten         | $rho=lambda/(2mu)=a/2$ |Übung 3.1.10|
+| mittlere Wartezeit        | $bar V=1/mu * a^2/(a^2-a^2)$ |Übung 3.1.10|
+|||
+
+<br>
+
 | M/M/s                      |                                 |Quelle|
 | ------------------------- | ---------------------------------|------|
 | mittlere Verweilzeit      | $\bar{V}=\frac{1}{\mu}\cdot\frac{1}{1-\rho^k}$ |3.1.8|
@@ -161,7 +173,7 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 | Verlustwahrscheinlichkeit,<br>"Erlang-B Formel" | $pi_s=B(s,a)=(a^n/(n!))/( sum_(i=0)^n a^i/(i!))$<br>$B(s,a)=(a * B(s-1,a))/(s+a * B(s-1,a))$<br>$B(1,a)=a/(1+a)$<br>$bar B_(s,a)=a(1-B(s,a))$ |3.1.11|
 
 <br>
-
+ 
 | M/G/1                     |                              |Quelle|
 | ------------------------- | -------------------------------- |-|
 |Variationskoeffizient      | $c^2=(Var(S))/(bar S^2)$ |3.1.9|
@@ -171,6 +183,7 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 |mittlere Verweilzeit       | $bar V = bar S + bar W = bar S + (lambda * bar S^2 * (1+c^2))/(2 * (1 - rho))=bar S * (1 + (1+c^2)/(2) * (rho)/(1-rho))$ |-|
 |mittlere Anzahl Wartender  | $bar N_W=lambda * bar W = = (lambda^2 * bar S^2)/(2(1-rho))=(1+c^2)/2 * rho^2/(1-rho)$ |-|
 |mittlere Anzahl im System  | $bar N = lambda * bar V = lambda * bar S + (lambda^2 * bar S^2)/(2(1-rho))=rho + (1+c^2)/2 * rho^2/(1-rho)$ |-|
+|Varianz|$Var(S)=sum_(i=0)^"Anzahl Systeme" "Anteil" * (S_1 - bar S)^2$|
 
  - Mittelwerte nehmen linear mit der Varianz zu
  - die Formeln sind ähnlich zu M/M/1, der einzige Unterschied ist der Extra-Faktor $(1+c^2)/2$
