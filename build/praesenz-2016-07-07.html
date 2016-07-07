@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            page-break-inside:auto;
+        }
+		
+		h2 {
+			page-break-before: always;
+		}
+		
+		thead { 
+			display:table-header-group 
+		}
+
+        table, th, td {
+            border: 1px solid gray;
+        }
+
+        tr {
+            height: 30px;
+            page-break-inside:avoid; 
+            page-break-after:auto;
+        }
+
+        td:nth-child(1), th:nth-child(1) {
+            width: 300px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body style="width:1000px;margin: 0 auto;">
+
+<p>Zeichnerische Symbole für</p>
+<ul>
+<li>einen Monoprozessor</li>
+<li>einen Biprozessor</li>
+<li>zwei Magnetplatten</li>
+</ul>
+<p>Monoprozessor: 1 Warteschlange 1 Server</p>
+<p>Biprozessor: 1 Warteschlange 2 Server</p>
+<p>2 Magnetplatten: 1 Warteschlange für jeden der 2 Server (insg. 2 Warteschlangen)</p>
+
+<script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            asciimath2jax: {
+              delimiters: [['$','$'], ['`','`']]
+            }
+          });
+        </script>
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_CHTML"></script>
+</body>
