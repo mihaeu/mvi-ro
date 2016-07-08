@@ -23,8 +23,8 @@
 |Mittlere Aufenthalsdauer in der Menge M|$T_(M,i)=1 + sum_(k in M) p_(ik) * T_(M,k)$, für $i in M$ <br> $(E-P_(M)) * vec T_M=((1),(vdots),(1))$|1.4.3|
 |Mittlere Absorptionszeit|$(E-P_(na)) * vec A=((1),(vdots),(1))$|1.4.3|
 |Mittlere Absorptionszeit bei Start in i|$A_i=sum_(k=1)^m v_(i,k)$|1.5.3|
-|Besuchshäufigkeiten, Visit Counts<br>mittlere Anzahl Besuche bei Start in j und Absorption in i|$vec v_i * (E-P')=vec e_i$<br>$V*(E-P')=E => V=(E-P_(na))^(-1)$|1.5.4|
-|Wahrscheinlichkeit, dass bei Start in i, Absorption in j stattfindet|$vec a_i=vec v_i * P_(na)$|1.5.6|
+|Besuchshäufigkeiten, Visit Counts<br>mittlere Anzahl Besuche bei Start in j und Absorption in i|$vec v_i * (E-P_(na))=vec e_i$<br>$V*(E-P_(na))=E => V=(E-P_(na))^(-1)$|1.5.4|
+|Wahrscheinlichkeit, dass bei Start in i, Absorption in j stattfindet|$vec a_i=vec v_i * P_(a)$|1.5.6|
 |Rekurrenzzeiten<br>Dauer zwischen aufeinanderfolgenden Besuchen|$R_i=1/pi_i=1+sum_(k ne i) p_(ik) * T_(M,k)$<br>$R_i = 1+ p_(ij) * T_(M,j)$, falls $j in Z; j ne i; p_(ii)+p_(ij)=1$ |1.6.3|
 |Distanz|$D_(i,N)=A_i$|1.5.10|
 
@@ -150,9 +150,9 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 
 | M/M/2 (Bedienrate $mu$)   |                                  |Quelle|
 | ------------------------- | ---------------------------------|------|
-| mittlere Verweilzeit      | $bar V=1/mu * a^2/(4-a^2)$ |Übung 3.1.10|
+| mittlere Verweilzeit      | $bar V=1/mu * 4/(4-a^2)$ |Übung 3.1.10|
 | zeitl. Auslastung,<br>Wahrscheinlichkeit Auftrag muss warten         | $rho=lambda/(2mu)=a/2$ |Übung 3.1.10|
-| mittlere Wartezeit        | $bar V=1/mu * a^2/(a^2-a^2)$ |Übung 3.1.10|
+| mittlere Wartezeit        | $bar W=1/mu * a^2/(4-a^2)$ |Übung 3.1.10|
 |||
 
 <br>
