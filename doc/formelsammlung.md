@@ -144,7 +144,7 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 | mittlere Anzahl im System     | $bar N=U/(1-U)=lambda/(mu-lambda)=lambda * bar V$ |3.1.6|
 | mittlere Anzahl Wartender     | $\bar{N}_W=U^2\cdot\frac{1}{1-U}=\lambda\cdot \bar{W}$ |3.1.6|
 | Verteilung Verweilzeit        | $F_V(x)=P(V\le x)=1-e^{-\frac{x}{\bar{V}}}$ für $x\ge 0​$ |3.1.6|
-| p-Quantil                     | $x_p=-\bar{V}\cdot ln(1-p)$ für $0\ge p>1$ |3.1.6|
+| p-Quantil                     | $x_p=-\bar{V}\cdot ln(1-p)$ für $0 le p < 1$ |3.1.6|
 
 <br>
 
