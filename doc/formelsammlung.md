@@ -138,7 +138,7 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 | Bedienrate                    | $mu=1/bar S$                  |3.1.1|
 | mittlere Bedienzeit           | $bar S = 1/mu$              |3.1.1|
 | zeitl. Auslastung/Durchsatz,<br>Wahrscheinlichkeit, dass Auftrag warten muss   | $U=rho=lambda/mu=lambda * bar S=P("muss-warten")$<br>$U=X$, falls $U < 1$ |3.1.2|
-| mittlere Verweilzeit          | $bar V=1/mu-lambda=bar S * 1/(1-U)$ |3.1.6|
+| mittlere Verweilzeit          | $bar V=1/(mu-lambda)=bar S * 1/(1-U)$ |3.1.6|
 | mittlere Verweilzeit im Cache | $bar V_"Cache"="Anzahl Blöcke"/(lambda *(1-"Trefferwahrscheinlichkeit"))$ |3.1.5|
 | mittlere Wartezeit            | $bar W=lambda/mu *1/(mu-lambda)=bar S  *U/(1-U)$ |3.1.6|
 | mittlere Anzahl im System     | $bar N=U/(1-U)=lambda/(mu-lambda)=lambda * bar V$ |3.1.6|
