@@ -201,7 +201,7 @@ Mögliche Verteilungen: M(arkovsch), D(iskret), G(eneral)
 | Typ 2 für CPUs mit Prozessor Sharing | $M//G//1//oo//oo//"PS"$ |3.2.2|
 | Typ 3 für infinite Server "IS", Terminals, allg. Wartezustände,  Prozesssynchronisation |$M//G//oo$|3.2.2|
 | Ankunftsrate Knoten i                                        | $lambda_i = lambda_(0,1) + sum_(j=1)^k p_(j,i) * lambda_j$, für $i=1, ..., k$ <br> $lambda_i=e_i * X$|3.2.3|
-| Durchsatz des Gesamtnetzes                           | $X=("Anzahl bearbeiteter Aufträge")/(Zeit)=sum_(i=1)^K lambda_(0,1)$, falls $U_i < 1$<br>Summe aller von außen ("0") kommenden Ankunftsraten |3.2.3|
+| Durchsatz des Gesamtnetzes                           | $X=("Anzahl bearbeiteter Aufträge")/(Zeit)=sum_(i=1)^K lambda_(0,i)$, falls $U_i < 1$<br>Summe aller von außen ("0") kommenden Ankunftsraten |3.2.3|
 |Besuchshäufigkeit, mittl. Anzahl Besuche | $e_i=lambda_i/X$ |3.2.3|
 |mittlere Verweilzeit | $bar V = e_i * V_i + e_(i+1) * V_(i+1) + ... = sum_(i=1)^K bar V_i * e_i$ |3.2.3|
 |Auslastung Knoten i| $U_i = lambda_i/mu_i$, bei Typ 1 und 3 <br>$U_i = lambda_i/(m_i * mu_i)$ bei Typ 2 |3.2.3|
