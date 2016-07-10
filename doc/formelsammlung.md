@@ -52,7 +52,7 @@
 |Mittlere Kosten pro Periode|$G=sum_(k=0)^c pi_k * R(k)$|
 |Kosten für eine Bestellung der Höhe b|$B(b)=0$, für $b=0$<br>$B(b)=K+c * b$, für $b > 0$|
 |Lager-/Fehlmengenkosten|$K(x)=h * x$, für $x ge 0$ "Lagerkosten"<br>$K(x)=-f * x$, für $x < 0$ "Fehlmengenkosten"<br>$(h, f ge 0)$|
-|Gesamtkosten einer Periode<br>(i = Endbestand)|$R_i=sum_(K=0)^i h * (i - k) * v_k + sum_(k ge i +1) f * (k-i) * v_k$, für $i ge s$<br>$R_i=K+c * (S - i) + sum_(k=0)^S h* (S-k) * v_k + sum_(k ge S+1) f * (k-S) * v_k$, für $i < s$|
+|Gesamtkosten einer Periode<br>(i = Endbestand)|$R_i=sum_(k=0)^i h * (i - k) * v_k + sum_(k ge i +1) f * (k-i) * v_k$, für $i ge s$<br>$R_i=K+c * (S - i) + sum_(k=0)^S h* (S-k) * v_k + sum_(k ge S+1) f * (k-S) * v_k$, für $i < s$|
 |Zeit bis Lager leer ist|$=>$Zustand Lagerbestand 0 modifizieren, so dass er absorbierend ist, dann Absorptionszeit berechnen|
 
 <br>
@@ -93,7 +93,7 @@
 
 |   |   |Quelle|
 |---|---|--|
-|  Gleichgewicht (falls irreduzibel,<br>Periodizität egal, da $Delta t$ beliebig klein werden darf) | $vec pi * Lambda = 0$ (P)<br>$sum vec pi_i=1$ (N)  |2.2.1|
+|  Gleichgewicht (falls irreduzibel,<br>Periodizität egal, da $Delta t$ beliebig klein werden darf) | $vec pi * Lambda = vec 0$ (P)<br>$sum vec pi_i=1$ (N)  |2.2.1|
 |Konvergenzsatz $n -> oo$ <br>|$lim_(n->oo) p_i(t)=pi_i$, falls irreduzibel|2.2.1|
 |Lokales Gleichgewicht|$sum_(i in K)sum_(i in K) pi_i * lambda_(ij) = sum_(i in K)sum_(i in K) pi_j * lambda_(ji)$|2.2.1|
 |Lokales Gleichg. bei Geburts-Sterbeprozess|$pi_i * lambda_(i,i+1)=pi_(i+1)*lambda_(i+1,i)$|?|
@@ -233,7 +233,7 @@ falls nur D und X bekannt (Quelle: 3.2.5)
 
 | Mittelwertanalyse |  | Quelle|
 |-------------------|--|--|
-|relative Besuchshäufigkeit| $r_k=sum_(j=1)^K p_(jk) * v_j$<br>$r_(k0)=1$ |3.2.9|
+|relative Besuchshäufigkeit| $r_k=sum_(j=1)^K p_(jk) * r_j$<br>$r_(k0)=1$ |3.2.9|
 |Durchsatz am Knoten N| $X(N)=N/(sum_(k=1)^K bar V_k(N) * r_k$ |3.2.9|
 |Verweilzeit bei N Aufträgen im Knoten K|$V_k(N)=S_k$, bei Verzögerungsknoten<br>$V_k(N)=bar S_k + bar S_k * bar N_k(N-1)$, bei Warteknoten<br>$barN_k=0$|3.2.9|
 |mittlere Anzahl Aufträge in k bei N Aufträgen|$bar N_k(N)=X(N) * r_k * bar V_k(N)$|3.2.9|
