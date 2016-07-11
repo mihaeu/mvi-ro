@@ -10,15 +10,21 @@ Gegeben ist ein $M//M//2//1//oo//FCS$ System. Ankunftsrate sei $lambda$ und Bedi
 
 Zeichnen Sie ein geeignetes Übergangsdiagramm. Was bedeuten die Zustände?
 
+![](pruefung-1.png)
+
+0: 0 im System
+
+1: 1 Auftrag im System (1 aktiv, 0 warten)
+
+2: 2 Auftrag im System (2 aktiv, 0 warten)
+
+3: 3 Auftrag im System (2 aktiv, 1 warten)
+
 ### b)
-
-Erstellen Sie die Übergangsmatrix.
-
-### c)
 
 Wie lauten die Übergangswahrscheinlichkeiten. Verwenden Sie hierfür $a = lambda/mu$.
 
-### d)
+### c)
 
 ## 2. Arztpraxis
 
