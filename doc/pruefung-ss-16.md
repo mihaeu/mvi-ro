@@ -54,6 +54,12 @@ Wie lauten die Übergangswahrscheinlichkeiten?
 
 ## 4. Wartungsnetz
 
+Gegeben ist ein lokales Netzwerk in einem Wartenetz. Das lokale Netzwerk nimmt von außen Aufträgt von Clients an und leitet diese an ein SAP System weiter. Das SAP System erstellt pro Benutzerauftrag zwei Anfragen an einen DB Server. Das SAP System kommuniziert dabei über das lokale Netzwerk mit dem DB Server. Der DB Server liefert kommuniziert ebenfalls über das lokale Netzwerk mit dem SAP System. Anschließend sendet das SAP System die Anfrage über das lokale Netzwerk nach außen.
+
+### a) Zeichnen Sie ein geeignetes Wartenetz.
+
+### b) Wie viele Besuche gibt es im Mittel am lokalen Netzwerk und am SAP System?
+
 ## 5. 
 
 Erzeuger Verbraucher mit Puffergröße N=4. Der Erzeuger legt beim Erzeugen 2 Elemente ab. Wenn nurnoch Platz für ein Element existiert, legt er nur eines ab. Ist kein Platz, legt er nichts ab. Erzeugt wird mit Wahrscheinlichkeit $p=1/2$. Der Verbraucher verbraucht mit Wahrscheinlichkeit q ein Element. Es gilt $p + q =1$ 
