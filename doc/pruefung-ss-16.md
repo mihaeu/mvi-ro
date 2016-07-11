@@ -28,7 +28,7 @@ Wie lauten die Übergangswahrscheinlichkeiten. Verwenden Sie hierfür $a = lambd
 
 ## 2. Arztpraxis
 
-In einer Arztpraxis kommen Kunden mit der Rate $lambda$ an. Wenn mehr als 2 Patienten im Wartezimmer sind, geht die Hälfte der Patienten sofort wieder. Die Zeit die der eine Arzt pro Patient benötigt ist $bar S$. Wenn mindestens 2 Patienten im Wartezimmer sind, halbiert der Arzt seine Bearbeitungszeit.
+In einer Arztpraxis kommen Kunden mit der Rate $lambda$ an. Wenn mehr als 2 Patienten im Wartezimmer sind, geht die Hälfte der Patienten sofort wieder. Die Zeit die der eine Arzt pro Patient benötigt ist $bar S$. Wenn der Arzt ins Wartezimmer sieht und dort mehr als 2 Patienten sind, halbiert der Arzt seine Bearbeitungszeit.
 
 ### a)
 
@@ -40,7 +40,7 @@ Zeichnen Sie den Übergangsgraphen.
 
 Unter welcher Bedingung (in Abhängigkeit von $bar S$) gibt es eine Gleichgewichtslösung? Keine Berechnung notwendig.
 
-## 3. Gegeben sei folgender Graph:
+## 3. Gegeben sei folgendes HMKD:
 
 ![](pruefung-3.png)
 
@@ -54,12 +54,18 @@ Wie lauten die Übergangswahrscheinlichkeiten?
 
 ## 4. Wartungsnetz
 
-Gegeben ist ein lokales Netzwerk in einem Wartenetz. Das lokale Netzwerk nimmt von außen Aufträgt von Clients an und leitet diese an ein SAP System weiter. Das SAP System erstellt pro Benutzerauftrag zwei Anfragen an einen DB Server. Das SAP System kommuniziert dabei über das lokale Netzwerk mit dem DB Server. Der DB Server liefert kommuniziert ebenfalls über das lokale Netzwerk mit dem SAP System. Anschließend sendet das SAP System die Anfrage über das lokale Netzwerk nach außen.
+Gegeben ist eine Anwendungsarchitektur als Wartenetz. Ein Netzserver (N) nimmt von außen Aufträgt von Clients an und leitet diese an ein SAP System weiter. Das SAP System erstellt pro Benutzerauftrag zwei Anfragen an einen DB Server (DB). Das SAP System kommuniziert dabei über den Netzserver mit dem DB Server. Der DB Server liefert kommuniziert ebenfalls über den Netzserver mit dem SAP System. Anschließend sendet das SAP System die Anfrage über das lokale Netzwerk nach außen.
 
 ### a) Zeichnen Sie ein geeignetes Wartenetz.
 
+![](pruefung-4.png)
+
 ### b) Wie viele Besuche gibt es im Mittel am lokalen Netzwerk und am SAP System?
+
+SAP: $"DB" + 1 = 3$
+
+N: $1 + "SAP" + "DB" = 6$
 
 ## 5. 
 
-Erzeuger Verbraucher mit Puffergröße N=4. Der Erzeuger legt beim Erzeugen 2 Elemente ab. Wenn nurnoch Platz für ein Element existiert, legt er nur eines ab. Ist kein Platz, legt er nichts ab. Erzeugt wird mit Wahrscheinlichkeit $p=1/2$. Der Verbraucher verbraucht mit Wahrscheinlichkeit q ein Element. Es gilt $p + q =1$ 
+Erzeuger Verbraucher mit Puffergröße N=4. Der Erzeuger legt beim Erzeugen 2 Elemente ab. Wenn nurnoch Platz für ein Element existiert, legt er nur eines ab. Ist kein Platz, legt er nichts ab. Erzeugt wird mit Wahrscheinlichkeit $p=1/2$. Der Verbraucher verbraucht mit Wahrscheinlichkeit 1 - p ein Element.
