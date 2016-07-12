@@ -26,25 +26,31 @@ Wie lauten die Übergangswahrscheinlichkeiten. Verwenden Sie hierfür $a = lambd
 
 ### c)
 
-Ab jetzt sei $lambda = mu = 1/s$. ...
+Ab jetzt sei $lambda = mu = 1/s$. Wie hoch ist die Verlustwahrscheinlichkeit? Zwischenergebnis: $1/11$
 
 ### d)
 
-...
+Wie hoch ist die Wahrscheinlichkeit, dass ein ankommender Auftrag warten muss? Zwischenergebnis: $10/11$
 
 #### e)
 
-...
+Wie lange befindet sich ein Auftrag im Mittel insgesamt im System?
+
+### f)
+
+Wie viele Aufträge warten im Schnitt?
 
 ## 2. Arztpraxis
 
-In einer Arztpraxis kommen Kunden mit der Rate $lambda$ an. Wenn mehr als 2 Patienten im Wartezimmer sind, geht die Hälfte der Patienten sofort wieder. Die Zeit die der eine Arzt pro Patient benötigt ist $bar S$. Wenn der Arzt ins Wartezimmer sieht und dort mehr als 2 Patienten sind, halbiert der Arzt seine Bearbeitungszeit.
+In einer Arztpraxis kommen Kunden mit der Rate $lambda$ an. Wenn mehr als 2 Patienten im Wartezimmer sind, geht die Hälfte der Patienten sofort wieder. Die Zeit die der eine Arzt pro Patient benötigt ist $bar S$. Wenn der Arzt ins Wartezimmer sieht und dort mehr als 2 Patienten sind, kürzt der Arzt seine Bearbeitungszeit auf $bar S/2$.
 
 ### a)
 
 Zeichnen Sie den Übergangsgraphen.
 
 ![](pruefung-ss-16-2.png)
+
+Zustand i: i Patienten in der Praxis (Wartezimmer und Behandlungszimmer)
 
 ### b)
 
@@ -76,21 +82,29 @@ $pi_4=0.0588235$
 
 $pi_5=0.1764706$
 
-### c) Wie lange dauert es bis Zustand 3 wieder erreicht wird?
+### c) 
+
+Wie lange dauert es bis Zustand 3 wieder erreicht wird?
 
 $R_3=1/pi_3=...$
 
-### d) Wie lange hält man sich in der Zustandsmenge $M={2, 3, 4, 5}$ auf, wenn man in Zustand zwei startet?
+### d) 
+
+Wie lange hält man sich in der Zustandsmenge $M={2, 3, 4, 5}$ auf, wenn man in Zustand zwei startet?
 
 ## 4. Wartungsnetz
 
-Gegeben ist eine Anwendungsarchitektur als Wartenetz. Ein Netzserver (N) nimmt von außen Aufträgt von Clients an und leitet diese an ein SAP System weiter. Das SAP System erstellt pro Benutzerauftrag zwei Anfragen an einen DB Server (DB). Das SAP System kommuniziert dabei über den Netzserver mit dem DB Server. Der DB Server kommuniziert ebenfalls über den Netzserver mit dem SAP System. Anschließend sendet das SAP System die Anfrage über das lokale Netzwerk nach außen.
+Gegeben ist eine Anwendungsarchitektur als Wartenetz. Ein Netzserver (N) nimmt von außen Aufträgt von Clients an und leitet diese an ein SAP System weiter. Das SAP System erstellt pro Benutzerauftrag zwei Anfragen an einen DB Server (DB). Das SAP System kommuniziert dabei über den Netzserver mit dem DB Server. Der SAP Knoten stellt im Mittel zwei Anfragen pro Auftrag an den DB Knoten. Der DB Server kommuniziert ebenfalls über den Netzserver mit dem SAP System. Anschließend sendet das SAP System die Anfrage über das lokale Netzwerk nach außen.
 
-### a) Zeichnen Sie ein geeignetes Wartenetz.
+### a) 
+
+Zeichnen Sie ein geeignetes Wartenetz ohne Übergangsraten.
 
 ![](pruefung-ss-16-4.png)
 
-### b) Wie viele Besuche gibt es im Mittel am lokalen Netzwerk und am SAP System?
+### b) 
+
+Wie viele Besuche gibt es im Mittel am lokalen Netzwerk und am SAP System?
 
 SAP: $"DB" + 1 = 3$
 
@@ -106,9 +120,13 @@ Zeichnen Sie einen geeignetes Übergangsdiagramm. Was bedeuten die Zustände.
 
 ![](pruefung-ss-16-5.png)
 
+Zustand i: i Elemente im Puffer
+
 ### b)
 
 Geben Sie die Übergangsmatrix an.
+
+$P=[[0.5,0,0.5,0,0],[0.5,0,0,0.5,0],[0,0.5,0,0,0.5],[0,0,0.5,0,0.5],[0,0,0,0.5,0.5]]$
 
 ### c)
 
@@ -118,8 +136,22 @@ Es befinden sich 2 Elemente im Puffer. Wie lange dauert es bis der Puffer entwed
 
 P(0,0) und P(4,4) werden zu absorbierenden Zuständen geändert. $vec A_2$ z.B. über visit counts berechnen.
 
+$P'=[[1,0,0,0,0],[0.5,0,0,0.5,0],[0,0.5,0,0,0.5],[0,0,0.5,0,0.5],[0,0,0,0,1]]$
+
+$V=[[1.1428571,0.2857143,0.5714286],[0.5714286,1.1428571,0.2857143],[0.2857143,0.5714286,1.1428571]]$
+
+$vec A_2 = v_"2,1" + v_"2,2" + v_"2,3" = 2$
+
 ### d)
 
 Wie hoch ist die Wahrscheinlichkeit, dass der Puffer zuerst leer wird?
 
 Gesucht ist $a_"2,0"$.
+
+$P_a = [[0.5,0],[0,0.5],[0,0.5]]$
+
+$vec a_i = vec v_i * P_a$
+
+$a_"2,0"=1/7=0.1428571$
+
+$a_"2,4"=6/7=0.8571429$
