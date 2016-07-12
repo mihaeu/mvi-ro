@@ -31,6 +31,21 @@ digraph test {
 \`\`\`
 ```
 
+### Project structure
+
+```
+.
+├── build            <-- all generated HTML files (do not edit manually)
+├── doc              <-- all documents and other resources (graphs, images, etc.)
+├── index.html       <-- auto-generated index (do not edit manually)
+├── Makefile         <-- Makefile, mostly for make compile
+├── node_modules     <-- node packages, run npm install if you don't have this
+├── package.json     <-- node package information
+├── public           <-- source code for the Math editor, npm start and visit localhost:3000
+├── README.md        <-- this instruction
+└── server.js        <-- node backend
+```
+
 ## Installation
 
 ```bash
