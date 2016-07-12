@@ -58,9 +58,23 @@ Unter welcher Bedingung (in Abhängigkeit von $bar S$) gibt es eine Gleichgewich
 
 Geben Sie die Übergangsmatrix an.
 
+$P=[[0,0.5,0.333,0,0,0.167],[1,0,0,0,0,0],[0,0,0,1,0,0],[0,0,0,0,1,0],[1,0,0,0,0,0],[0,0,0,0,1,0]]$
+
 ### b)
 
 Wie lauten die Übergangswahrscheinlichkeiten?
+
+$pi_0=0.3529412$
+
+$pi_1=0.1764706$
+
+$pi_2=0.1176471$
+
+$pi_3=0.1176471$
+
+$pi_4=0.0588235$
+
+$pi_5=0.1764706$
 
 ### c) Wie lange dauert es bis Zustand 3 wieder erreicht wird?
 
