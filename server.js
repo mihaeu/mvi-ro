@@ -18,9 +18,9 @@ app.post('/', (req, res) => {
   let file = req.body.file.replace('.md', '');
   fs.writeFileSync('doc/' + file + '.md', req.body.md);
   fs.writeFileSync('doc/' + file + '.html', req.body.html);
-	
+
   console.log('Saved md and html at ' + new Date());
-	
+
   res.statusCode = 200;
   res.send();
 });
@@ -60,13 +60,9 @@ let template = (title, content) => {
             width: 100%;
             page-break-inside:auto;
         }
-		
-		h2 {
-			page-break-before: always;
-		}
-		
-		thead { 
-			display:table-header-group 
+
+		thead {
+			display:table-header-group
 		}
 
         table, th, td {
@@ -75,7 +71,7 @@ let template = (title, content) => {
 
         tr {
             height: 30px;
-            page-break-inside:avoid; 
+            page-break-inside:avoid;
             page-break-after:auto;
         }
 
