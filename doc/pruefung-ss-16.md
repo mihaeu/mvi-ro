@@ -96,6 +96,7 @@ Gegeben sei folgendes HMKD:
 Geben Sie die Übergangsmatrix an.
 
 $P=[[0,0.5,0.333,0,0,0.167],[1,0,0,0,0,0],[0,0,0,1,0,0],[0,0,0,0,1,0],[1,0,0,0,0,0],[0,0,0,0,1,0]]$
+(Spalte 4 und 5 vertauscht, wegen Scilab)
 
 ### b)
 
