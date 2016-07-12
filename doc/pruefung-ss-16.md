@@ -16,13 +16,40 @@ Zeichnen Sie ein geeignetes Übergangsdiagramm. Was bedeuten die Zustände?
 
 1: 1 Auftrag im System (1 aktiv, 0 warten)
 
-2: 2 Auftrag im System (2 aktiv, 0 warten)
+2: 2 Aufträge im System (2 aktiv, 0 warten)
 
-3: 3 Auftrag im System (2 aktiv, 1 warten)
+3: 3 Aufträge im System (2 aktiv, 1 warten)
 
 ### b)
 
 Wie lauten die Übergangswahrscheinlichkeiten. Verwenden Sie hierfür $a = lambda/mu$.
+
+$(G)$
+
+$pi_0 * lambda = pi_1 * mu => pi_1 = pi_0 * lambda/mu=pi_0 * a$
+
+$pi_1 * lambda = pi_2 * 2mu => pi_2 = pi_1 * a/2=pi_0 * a * a/2$
+
+$pi_2 * lambda = pi_3 * 2mu => pi_3 = pi_2 * a/2=pi_0 * a * (a/2)^2$
+
+$(N)$
+
+$pi_0 + pi_1 + pi_2 + pi_3 = 1$
+
+
+$pi_0 + pi_0 * a + pi_0 * a * a/2 + pi_0 * a * (a/2)^2 = 1$
+
+$pi_0 + pi_0 * a (1 + a/2 + (a/2)^2)=1$, geometrische Reihe konvergiert falls $a/2 < 1$
+
+$pi_0 + (pi_0 * a)/(1-a/2)=1$
+
+$pi_0(1-a/2) + pi_0 * a = 1-a/2$
+
+$pi_0((1-a/2)+a)=1-a/2$
+
+$pi_o=(1-a/2)/(1+a/2)=(2-a)/(2+a)$
+
+???
 
 ### c)
 
@@ -40,7 +67,7 @@ Wie lange befindet sich ein Auftrag im Mittel insgesamt im System?
 
 Wie viele Aufträge warten im Schnitt?
 
-## 2. Arztpraxis
+## 2.
 
 In einer Arztpraxis kommen Kunden mit der Rate $lambda$ an. Wenn mehr als 2 Patienten im Wartezimmer sind, geht die Hälfte der Patienten sofort wieder. Die Zeit die der eine Arzt pro Patient benötigt ist $bar S$. Wenn der Arzt ins Wartezimmer sieht und dort mehr als 2 Patienten sind, kürzt der Arzt seine Bearbeitungszeit auf $bar S/2$.
 
@@ -56,7 +83,9 @@ Zustand i: i Patienten in der Praxis (Wartezimmer und Behandlungszimmer)
 
 Unter welcher Bedingung (in Abhängigkeit von $bar S$) gibt es eine Gleichgewichtslösung? Keine Berechnung notwendig.
 
-## 3. Gegeben sei folgendes HMKD:
+## 3.
+
+Gegeben sei folgendes HMKD:
 
 ![](pruefung-ss-16-3.png)
 
@@ -86,15 +115,15 @@ $pi_5=0.1764706$
 
 Wie lange dauert es bis Zustand 3 wieder erreicht wird?
 
-$R_3=1/pi_3=...$
+$R_3=1/pi_3 approx 8.5$
 
 ### d) 
 
 Wie lange hält man sich in der Zustandsmenge $M={2, 3, 4, 5}$ auf, wenn man in Zustand zwei startet?
 
-## 4. Wartungsnetz
+## 4.
 
-Gegeben ist eine Anwendungsarchitektur als Wartenetz. Ein Netzserver (N) nimmt von außen Aufträgt von Clients an und leitet diese an ein SAP System weiter. Das SAP System erstellt pro Benutzerauftrag zwei Anfragen an einen DB Server (DB). Das SAP System kommuniziert dabei über den Netzserver mit dem DB Server. Der SAP Knoten stellt im Mittel zwei Anfragen pro Auftrag an den DB Knoten. Der DB Server kommuniziert ebenfalls über den Netzserver mit dem SAP System. Anschließend sendet das SAP System die Anfrage über das lokale Netzwerk nach außen.
+Gegeben ist eine Anwendungsarchitektur als Wartenetz. Ein Netzserver (N) nimmt von außen Aufträgt von Clients an und leitet diese an ein SAP System weiter. Das SAP System erstellt pro Benutzerauftrag zwei Anfragen an einen DB Server (DB). Das SAP System kommuniziert dabei über den Netzserver mit dem DB Server. Der SAP Knoten stellt im Mittel zwei Anfragen pro Auftrag an den DB Knoten. Der DB Server kommuniziert ebenfalls über den Netzserver mit dem SAP System. Das SAP System gibt über den Netzknoten die Angabe nach außen.
 
 ### a) 
 
@@ -112,7 +141,7 @@ N: $1 + "SAP" + "DB" = 6$
 
 ## 5. 
 
-Erzeuger Verbraucher mit Puffergröße N=4. Der Erzeuger legt beim Erzeugen 2 Elemente ab. Wenn nurnoch Platz für ein Element existiert, legt er nur eines ab. Ist kein Platz, legt er nichts ab. Erzeugt wird mit Wahrscheinlichkeit $p=1/2$. Der Verbraucher verbraucht mit Wahrscheinlichkeit 1 - p ein Element.
+Erzeuger Verbraucher mit Puffergröße N=4. Der Erzeuger legt beim Erzeugen 2 Elemente ab. Wenn nur noch Platz für ein Element existiert, legt er nur eines ab. Ist kein Platz, legt er nichts ab. Erzeugt wird mit Wahrscheinlichkeit $p=1/2$. Der Verbraucher verbraucht ein Element. Die Wahrscheinlichkeit des Verbrauchers ist $q = 1 - p$.
 
 ### a)
 
