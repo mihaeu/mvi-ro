@@ -39,21 +39,23 @@ $pi_0 + pi_1 + pi_2 + pi_3 = 1$
 
 $pi_0 + pi_0 * a + pi_0 * a * a/2 + pi_0 * a * (a/2)^2 = 1$
 
-$pi_0 + pi_0 * a (1 + a/2 + (a/2)^2)=1$, geometrische Reihe konvergiert falls $a/2 < 1$
+$pi_0 + pi_0 * a (1 + a/2 + (a/2)^2)=1$, keine geometrische Reihe!
 
-$pi_0 + (pi_0 * a)/(1-a/2)=1$
+$pi_0 = 1/(1+a+a * a/2+a * a^2/4)=4/(4+4a+2a^2+a^3)$
 
-$pi_0(1-a/2) + pi_0 * a = 1-a/2$
+$pi_1 = pi_0 * a = (4 * a)/(4+4a+2a^2+a^3)$
 
-$pi_0((1-a/2)+a)=1-a/2$
+$pi_2 = pi_0 * a * a/2 = (4 * a^2)/(2 * (4+4a+2a^2+a^3))$
 
-$pi_o=(1-a/2)/(1+a/2)=(2-a)/(2+a)$
-
-???
+$pi_3 = pi_0 * a * (a/2)^2 = (4 * a^3)/(4 * (4+4a+2a^2+a^3))$
 
 ### c)
 
 Ab jetzt sei $lambda = mu = 1/s$. Wie hoch ist die Verlustwahrscheinlichkeit? Zwischenergebnis: $1/11$
+
+$a=lambda/mu=(1/s)/(1/s)=1$
+
+$pi_3 = (4 * a^3)/(4 * (4+4a+2a^2+a^3))=(4 * 1)/(4 * (4 + 4 * 1 + 2 * 1^2 + 1^3))=4/(4*(4+4+2+1))=1/11$
 
 ### d)
 
