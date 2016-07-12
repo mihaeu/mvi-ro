@@ -100,6 +100,12 @@ Geben Sie die Übergangsmatrix an.
 
 Es befinden sich 2 Elemente im Puffer. Wie lange dauert es bis der Puffer entweder leer oder voll ist? Passen Sie hierfür den Übergangsgraph entsprechend an.
 
+![](pruefung-ss-16-5_2.png)
+
+P(0,0) und P(4,4) werden zu absorbierenden Zuständen geändert. $vec A_2$ z.B. über visit counts berechnen.
+
 ### d)
 
 Wie hoch ist die Wahrscheinlichkeit, dass der Puffer zuerst leer wird?
+
+Gesucht ist $a_"2,0"$.
